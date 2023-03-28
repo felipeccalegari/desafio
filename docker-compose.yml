@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres
+    container_name: postgres_api
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSOWRD: '12345'
+      POSTGRES_DB: api
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    ports:
+      - "5432:5432"    
+    volumes:
+      - ./:/db
+
+  api:
+    container_name: nodejs_api    
+    build: .
+    ports: 
+      - "5000:5000"
+    volumes:
+      - ./:/app
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSOWRD: '12345'
+      POSTGRES_DB: api
