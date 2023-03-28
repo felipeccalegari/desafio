@@ -15,7 +15,7 @@ const criarTabela = `CREATE TABLE IF NOT EXISTS formulario (
    email VARCHAR (70) UNIQUE,
    cpf VARCHAR (20),
    phone VARCHAR (20),
-   created_at TIMESTAMP without time zone DEFAULT (current_timestamp AT time zone 'America/Sao_Paulo')::TIMESTAMP without time zone
+   created_at DATE DEFAULT (LOCALTIMESTAMP)::DATE
 )`;
 
 pool.query(criarTabela, (error, res) => {
@@ -27,7 +27,7 @@ pool.query(criarTabela, (error, res) => {
 })
 
 const Usuarios = (req, res) => {
-    pool.query("SELECT id, name, email, phone, to_char(created_at, 'YYYY-MM-DD HH24:MI:SS') AS created_at FROM formulario ORDER BY id ASC", (error, results) => {
+    pool.query("SELECT id, name, email, phone, to_char(created_at, 'YYYY-MM-DD') AS created_at FROM formulario ORDER BY id ASC", (error, results) => {
         if (error) {
             throw error
         }
