@@ -13,8 +13,8 @@
 - Necessário ter o Docker instalado com o Docker Compose;
 - Ao abrir a pasta do projeto no terminal ou editor de código, basta utilizar o comando "docker-compose up";
 - Foi utilizado a ferramenta 'Postman' para realizar os testes de API;
-- Enviar dados de entrada no formato JSON, conforme exemplo abaixo;
 - Rota utilizada para inserir e verificar dados: '/formulario'.
+- Enviar dados de entrada no formato JSON, conforme exemplo abaixo;
 
 #### Exemplo de entrada:
 
